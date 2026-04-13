@@ -8,165 +8,155 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy:   #0B2250; --navy2: #0D2A60; --navy3: #122E6B;
-      --green:  #4ADE80; --green2: #22C55E;
-      --text:   #EFF6FF; --muted: #93C5FD; --muted2: #CBD5E1;
-      --border: rgba(255,255,255,0.09); --card: rgba(255,255,255,0.05); --white: #ffffff;
+      --navy:    #0B2250;
+      --navy2:   #0D2A60;
+      --navy3:   #122E6B;
+      --green:   #16A34A;
+      --green2:  #22C55E;
+      --green-l: #F0FDF4;
+      --red:     #DC2626;
+      --red-l:   #FEF2F2;
+      --amber:   #D97706;
+      --text:    #1E293B;
+      --text-m:  #475569;
+      --text-l:  #64748B;
+      --muted:   #CBD5E1;
+      --border:  #E2E8F0;
+      --bg:      #FFFFFF;
+      --bg2:     #F8FAFC;
+      --bg3:     #EFF6FF;
+      --white:   #ffffff;
     }
     html { scroll-behavior: smooth; }
-    body { background: var(--navy); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; }
 
     /* HEADER */
-    header {
-      background: rgba(11,34,80,0.95); backdrop-filter: blur(8px);
-      position: sticky; top: 0; z-index: 100;
-      border-bottom: 1px solid var(--border);
-      padding: 16px 40px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .logo { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 800; color: var(--white); }
+    header { background: var(--navy); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 800; color: var(--white); letter-spacing: -0.5px; }
     .logo span { color: var(--green); }
 
-    /* BOTÕES CTA — dois estilos */
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: var(--green2); color: #052e16;
-      font-family: 'Sora', sans-serif; font-weight: 700; font-size: 15px;
-      padding: 14px 32px; border-radius: 9px; text-decoration: none;
-      transition: background 0.2s, transform 0.15s; white-space: nowrap;
-    }
+    /* BOTÕES */
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--green2); color: #052e16; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 9px; text-decoration: none; transition: background 0.2s, transform 0.15s; white-space: nowrap; }
     .btn-primary:hover { background: var(--green); transform: translateY(-2px); }
     .btn-primary.lg { font-size: 17px; padding: 18px 44px; border-radius: 10px; }
-    .btn-outline {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: transparent; color: var(--green);
-      border: 1.5px solid var(--green2);
-      font-family: 'Sora', sans-serif; font-weight: 700; font-size: 15px;
-      padding: 13px 30px; border-radius: 9px; text-decoration: none;
-      transition: background 0.2s, color 0.2s;
-    }
+    .btn-outline { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--green); border: 1.5px solid var(--green); font-family: 'Sora', sans-serif; font-weight: 700; font-size: 15px; padding: 13px 30px; border-radius: 9px; text-decoration: none; transition: background 0.2s; }
     .btn-outline:hover { background: rgba(74,222,128,0.1); }
 
     /* HERO */
-    .hero {
-      max-width: 1160px; margin: 0 auto; padding: 80px 40px 88px;
-      display: grid; grid-template-columns: 1fr 420px; gap: 64px; align-items: start;
-    }
-    .badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.25);
-      border-radius: 100px; padding: 6px 16px; font-size: 13px; font-weight: 600;
-      color: var(--green); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.8px;
-    }
-    .badge::before { content: ''; width: 7px; height: 7px; background: var(--green); border-radius: 50%; }
-    h1 {
-      font-family: 'Sora', sans-serif; font-size: clamp(34px, 4vw, 54px); font-weight: 800;
-      line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 24px; color: var(--white);
-    }
+    .hero { max-width: 1160px; margin: 0 auto; padding: 80px 40px 88px; display: grid; grid-template-columns: 1fr 420px; gap: 64px; align-items: start; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; background: var(--green-l); border: 1px solid rgba(22,163,74,0.25); border-radius: 100px; padding: 6px 16px; font-size: 13px; font-weight: 600; color: var(--green); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.8px; }
+    .badge::before { content: ''; width: 7px; height: 7px; background: var(--green2); border-radius: 50%; }
+    h1 { font-family: 'Sora', sans-serif; font-size: clamp(34px, 4vw, 54px); font-weight: 800; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 24px; color: var(--navy); }
     h1 em { font-style: normal; color: var(--green); }
-    .hero-desc { font-size: 18px; color: var(--muted2); margin-bottom: 32px; line-height: 1.75; }
+    .hero-desc { font-size: 18px; color: var(--text-m); margin-bottom: 32px; line-height: 1.75; }
     .hero-bullets { display: flex; flex-direction: column; gap: 11px; margin-bottom: 40px; }
-    .hero-bullet { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--muted2); }
-    .hero-bullet::before {
-      content: ''; flex-shrink: 0; width: 18px; height: 18px;
-      background: rgba(74,222,128,0.15); border: 1px solid rgba(74,222,128,0.4);
-      border-radius: 50%; margin-top: 3px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%234ADE80' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: center; background-size: 10px;
-    }
+    .hero-bullet { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--text-m); }
+    .hero-bullet::before { content: ''; flex-shrink: 0; width: 18px; height: 18px; background: rgba(74,222,128,0.15); border: 1px solid rgba(74,222,128,0.4); border-radius: 50%; margin-top: 3px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%234ADE80' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; background-size: 10px; }
     .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
 
     /* FORM CARD */
-    .form-card {
-      background: var(--navy2); border: 1px solid var(--border); border-radius: 18px;
-      padding: 36px 32px; position: sticky; top: 80px;
-    }
-    .form-card h2 { font-family: 'Sora', sans-serif; font-size: 21px; font-weight: 800; color: var(--white); margin-bottom: 6px; }
-    .form-card > p { font-size: 14px; color: var(--muted2); margin-bottom: 24px; line-height: 1.6; }
+    .form-card { background: var(--white); border: 1.5px solid var(--border); border-radius: 18px; padding: 36px 32px; position: sticky; top: 80px; box-shadow: 0 4px 24px rgba(11,34,80,0.10); }
+    .form-card h2 { font-family: 'Sora', sans-serif; font-size: 21px; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+    .form-card > p { font-size: 14px; color: var(--text-m); margin-bottom: 24px; line-height: 1.6; }
     .form-divider { height: 1px; background: var(--border); margin-bottom: 24px; }
-    #dynamics-form-slot { min-height: 60px; }
+    #rd-form-slot { min-height: 60px; }
     .form-privacy { margin-top: 14px; font-size: 12px; color: #64748B; text-align: center; line-height: 1.5; }
     .form-privacy a { color: #64748B; }
 
     /* STATS */
-    .stats-bar { background: var(--navy3); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .stats-inner {
-      max-width: 1160px; margin: 0 auto; padding: 48px 40px;
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center;
-    }
-    .stat-number { font-family: 'Sora', sans-serif; font-size: 40px; font-weight: 800; color: var(--green); line-height: 1; margin-bottom: 8px; }
-    .stat-label { font-size: 14px; color: var(--muted2); line-height: 1.5; }
+    .stats-bar { background: var(--navy); border-top: none; border-bottom: none; }
+    .stats-inner { max-width: 1160px; margin: 0 auto; padding: 48px 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center; }
+    .stat-number { font-family: 'Sora', sans-serif; font-size: 38px; font-weight: 800; color: #4ADE80; line-height: 1; margin-bottom: 6px; }
+    .stat-number.red { color: #F87171; }
+    .stat-label { font-size: 14px; color: #CBD5E1; line-height: 1.5; }
+    .stat-source { font-size: 11px; color: #64748B; margin-top: 4px; }
 
     /* SEÇÕES */
     .section { padding: 88px 40px; border-top: 1px solid var(--border); }
     .section-inner { max-width: 1160px; margin: 0 auto; }
     .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--green); margin-bottom: 14px; display: block; }
-    .section h2 { font-family: 'Sora', sans-serif; font-size: clamp(26px, 3vw, 40px); font-weight: 800; letter-spacing: -1px; margin-bottom: 14px; color: var(--white); }
-    .section-sub { font-size: 17px; color: var(--muted2); margin-bottom: 48px; max-width: 600px; line-height: 1.7; }
-    .section-cta { margin-top: 48px; }
+    .section h2 { font-family: 'Sora', sans-serif; font-size: clamp(26px, 3vw, 40px); font-weight: 800; letter-spacing: -1px; margin-bottom: 14px; color: var(--navy); }
+    .section-sub { font-size: 17px; color: var(--text-m); margin-bottom: 48px; max-width: 640px; line-height: 1.7; }
+    .section-cta { margin-top: 48px; display: flex; gap: 14px; flex-wrap: wrap; }
 
-    /* CARDS CONTEÚDO */
+    /* CENÁRIO NACIONAL — cards alerta */
+    .alert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .alert-card { background: var(--red-l); border: 1px solid rgba(220,38,38,0.15); border-radius: 14px; padding: 28px 24px; }
+    .alert-value { font-family: 'Sora', sans-serif; font-size: 30px; font-weight: 800; color: var(--red); line-height: 1.1; margin-bottom: 8px; }
+    .alert-label { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .alert-desc { font-size: 13px; color: var(--text-m); line-height: 1.6; }
+    .alert-source { font-size: 11px; color: #475569; margin-top: 8px; }
+
+    /* CONTEÚDO DO EBOOK */
     .learn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-    .learn-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px 24px; transition: border-color 0.2s; }
-    .learn-card:hover { border-color: rgba(74,222,128,0.3); }
+    .learn-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 28px 24px; transition: border-color 0.2s, box-shadow 0.2s; }
+    .learn-card:hover { border-color: var(--green); box-shadow: 0 4px 16px rgba(22,163,74,0.1); }
     .learn-icon { font-size: 28px; margin-bottom: 16px; display: block; }
-    .learn-title { font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
-    .learn-desc { font-size: 14px; color: var(--muted2); line-height: 1.6; }
+    .learn-title { font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .learn-desc { font-size: 14px; color: var(--text-m); line-height: 1.6; }
 
-    /* PÚBLICO */
-    .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-    .audience-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px 20px; display: flex; align-items: flex-start; gap: 14px; }
-    .aud-dot { flex-shrink: 0; width: 10px; height: 10px; background: var(--green); border-radius: 50%; margin-top: 6px; }
-    .audience-card strong { font-size: 15px; font-weight: 600; color: var(--white); display: block; margin-bottom: 4px; }
-    .audience-card span { font-size: 13px; color: var(--muted2); line-height: 1.5; }
-
-    /* IMPACTO */
-    .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-    .impact-card { background: var(--navy2); border: 1px solid var(--border); border-radius: 14px; padding: 28px 24px; }
-    .impact-value { font-family: 'Sora', sans-serif; font-size: 28px; font-weight: 800; color: #F87171; margin-bottom: 8px; }
-    .impact-label { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 6px; }
-    .impact-desc { font-size: 13px; color: var(--muted2); }
+    /* DIFERENCIAIS SESI */
+    .diff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .diff-card { background: var(--white); border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; padding: 28px 24px; }
+    .diff-number { font-family: 'Sora', sans-serif; font-size: 34px; font-weight: 800; color: var(--green); margin-bottom: 8px; line-height: 1; }
+    .diff-label { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 6px; line-height: 1.3; }
+    .diff-desc { font-size: 13px; color: var(--text-m); line-height: 1.6; margin-top: 4px; }
 
     /* MÓDULOS */
     .modules-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .module-card { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--green2); border-radius: 14px; padding: 28px 24px; }
-    .module-title { font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
-    .module-desc { font-size: 14px; color: var(--muted2); line-height: 1.6; }
+    .module-card { background: var(--white); border: 1px solid var(--border); border-left: 3px solid var(--green); border-radius: 14px; padding: 28px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .module-title { font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .module-desc { font-size: 14px; color: var(--text-m); line-height: 1.6; }
 
-    /* BANNER CTA INTERMEDIÁRIO */
-    .cta-banner {
-      background: linear-gradient(135deg, #0f3d70 0%, #0a5c3a 100%);
-      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      padding: 64px 40px;
-    }
-    .cta-banner-inner {
-      max-width: 1160px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;
-    }
+    /* BANNER CTA */
+    .cta-banner { padding: 64px 40px; background: var(--navy); }
+    .cta-banner-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
     .cta-banner h3 { font-family: 'Sora', sans-serif; font-size: clamp(22px, 2.5vw, 32px); font-weight: 800; color: var(--white); margin-bottom: 8px; }
-    .cta-banner p { font-size: 16px; color: var(--muted2); max-width: 560px; }
+    .cta-banner p { font-size: 16px; color: #CBD5E1; max-width: 560px; }
+
+    /* PÚBLICO */
+    .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .audience-card { background: var(--bg3); border: 1px solid #DBEAFE; border-radius: 12px; padding: 24px 20px; display: flex; align-items: flex-start; gap: 14px; }
+    .aud-dot { flex-shrink: 0; width: 10px; height: 10px; background: var(--green); border-radius: 50%; margin-top: 6px; }
+    .audience-card strong { font-size: 15px; font-weight: 600; color: var(--navy); display: block; margin-bottom: 4px; }
+    .audience-card span { font-size: 13px; color: var(--text-m); line-height: 1.5; }
 
     /* QUOTE */
-    .quote-section { padding: 80px 40px; text-align: center; }
+    .quote-section { padding: 80px 40px; text-align: center; background: var(--green-l); border-top: 1px solid rgba(22,163,74,0.15); border-bottom: 1px solid rgba(22,163,74,0.15); }
     .quote-inner { max-width: 760px; margin: 0 auto; }
-    blockquote { font-family: 'Sora', sans-serif; font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; line-height: 1.4; color: var(--white); margin-bottom: 20px; }
+    blockquote { font-family: 'Sora', sans-serif; font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; line-height: 1.4; color: var(--navy); margin-bottom: 16px; }
     blockquote::before { content: '\201C'; color: var(--green); }
     blockquote::after  { content: '\201D'; color: var(--green); }
-    .quote-source { font-size: 14px; color: var(--muted); margin-bottom: 36px; }
+    .quote-source { font-size: 14px; color: var(--text-l); margin-bottom: 36px; }
 
     /* CTA FINAL */
-    .cta-final { padding: 96px 40px; text-align: center; background: var(--navy3); border-top: 1px solid var(--border); }
+    .cta-final { padding: 96px 40px; text-align: center; background: var(--navy); }
     .cta-final-inner { max-width: 680px; margin: 0 auto; }
-    .cta-final h2 { font-family: 'Sora', sans-serif; font-size: clamp(28px, 3.5vw, 46px); font-weight: 800; margin-bottom: 16px; letter-spacing: -1px; }
-    .cta-final p { font-size: 17px; color: var(--muted2); margin-bottom: 36px; }
+    .cta-final h2 { font-family: 'Sora', sans-serif; font-size: clamp(28px, 3.5vw, 46px); font-weight: 800; margin-bottom: 16px; letter-spacing: -1px; color: var(--white); }
+    .cta-final p { font-size: 17px; color: #CBD5E1; margin-bottom: 36px; }
     .cta-final-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
+    /* FONTES */
+    .sources-section { background: var(--bg2); border-top: 1px solid var(--border); padding: 40px 40px; }
+    .sources-inner { max-width: 1160px; margin: 0 auto; }
+    .sources-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-l); margin-bottom: 16px; }
+    .sources-list { display: flex; flex-direction: column; gap: 8px; }
+    .sources-list li { font-size: 12px; color: var(--text-l); line-height: 1.6; list-style: none; padding-left: 16px; position: relative; }
+    .sources-list li::before { content: '¹'; position: absolute; left: 0; }
+    .sources-list li:nth-child(2)::before { content: '²'; }
+    .sources-list li:nth-child(3)::before { content: '³'; }
+    .sources-list li:nth-child(4)::before { content: '⁴'; }
+    .sources-list li:nth-child(5)::before { content: '⁵'; }
+    .sources-list li:nth-child(6)::before { content: '⁶'; }
+    .sources-list a { color: var(--green); text-decoration: underline; }
+
     /* FOOTER */
-    footer { border-top: 1px solid var(--border); padding: 36px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    footer { border-top: 1px solid var(--border); padding: 36px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; background: var(--navy); }
     .footer-brand { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 16px; }
     .footer-brand span { color: var(--green); }
     .footer-links { display: flex; gap: 24px; }
-    .footer-links a { font-size: 13px; color: var(--muted2); text-decoration: none; }
-    .footer-copy { font-size: 13px; color: #475569; width: 100%; }
+    .footer-links a { font-size: 13px; color: #94A3B8; text-decoration: none; }
+    .footer-copy { font-size: 13px; color: #64748B; width: 100%; }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
@@ -176,7 +166,7 @@
       .section { padding: 64px 24px; }
       .quote-section, .cta-final, .cta-banner { padding: 64px 24px; }
       header { padding: 14px 24px; }
-      footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; }
+      footer, .sources-section { padding: 28px 24px; }
       .modules-grid { grid-template-columns: 1fr; }
       .cta-banner-inner { flex-direction: column; }
     }
@@ -184,171 +174,259 @@
 </head>
 <body>
 
-<!-- ═══════════════ HEADER ═══════════════ -->
+<!-- ═══ HEADER ═══ -->
 <header>
   <div class="logo">SESI <span>VIVA+</span></div>
   <a href="#form" class="btn-primary">Baixar E-book Grátis →</a>
 </header>
 
-<!-- ═══════════════ HERO ═══════════════ -->
+<!-- ═══ HERO ═══ -->
 <section>
   <div class="hero">
     <div>
       <div class="badge">E-book gratuito · SESI Bahia</div>
       <h1>Gestão <em>Inteligente</em><br/>de Segurança e<br/>Saúde no Trabalho</h1>
-      <p class="hero-desc">Descubra como empresas industriais estão eliminando riscos legais, reduzindo custos com afastamentos e garantindo conformidade total com o eSocial usando o SESI VIVA+.</p>
+      <p class="hero-desc">O Brasil registrou <strong>724 mil acidentes de trabalho em 2024</strong> — um a cada 43 segundos. Descubra como estruturar sua gestão de SST, eliminar riscos legais e garantir conformidade total com o eSocial usando o SESI VIVA+, o maior investimento privado em SST do Brasil.</p>
       <div class="hero-bullets">
         <div class="hero-bullet">Conformidade com as 38 Normas Regulamentadoras (NR)</div>
         <div class="hero-bullet">Gestão integrada de PGR, PCMSO, PPR, LTCAT e eSocial</div>
-        <div class="hero-bullet">60+ indicadores de desempenho em SST</div>
-        <div class="hero-bullet">Redução de custos com afastamentos e acidentes de trabalho</div>
-        <div class="hero-bullet">Inteligência de dados para decisões estratégicas</div>
+        <div class="hero-bullet">60+ indicadores de desempenho em SST com o Info SESI VIVA+</div>
+        <div class="hero-bullet">Redução de riscos legais, custos com afastamentos e acidentes</div>
+        <div class="hero-bullet">Metodologia exclusiva desenvolvida em parceria com o Hospital Sírio-Libanês</div>
       </div>
-      <!-- CTA 1 — Hero -->
+      <!-- CTA 1 -->
       <div class="hero-ctas">
         <a href="#form" class="btn-primary">Quero o e-book grátis →</a>
-        <a href="#conteudo" class="btn-outline">Ver o conteúdo</a>
+        <a href="#cenario" class="btn-outline">Ver o cenário nacional</a>
       </div>
     </div>
 
-    <!-- FORM CARD -->
+    <!-- FORM -->
     <div class="form-card" id="form">
       <h2>Baixe o e-book grátis</h2>
       <p>Preencha os dados e receba o material completo sobre gestão inteligente de SST.</p>
       <div class="form-divider"></div>
       <div id="rd-form-slot">
-        <div role="main" id="sesi-viva-1589eda4dd9a57c39ae6"></div><script type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script><script type="text/javascript"> new RDStationForms('sesi-viva-1589eda4dd9a57c39ae6', 'UA-70079645-3').createForm();</script>
+        <div role="main" id="formulario-sesi-saude-em-acao-2022-35b14cc163801cb20bea"></div>
+        <script type="text/javascript">
+          (function() {
+            var s = document.createElement('script');
+            s.src = 'https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js';
+            s.type = 'text/javascript';
+            s.onload = function() {
+              new RDStationForms('formulario-sesi-saude-em-acao-2022-35b14cc163801cb20bea', 'UA-70079645-3').createForm();
+            };
+            document.head.appendChild(s);
+          })();
+        </script>
       </div>
       <p class="form-privacy">Respeitamos sua privacidade. Seus dados não serão compartilhados.<br/><a href="https://www.sesibahia.com.br" target="_blank">Política de privacidade · SESI Bahia</a></p>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ STATS ═══════════════ -->
+<!-- ═══ STATS SESI ═══ -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div><div class="stat-number">38</div><div class="stat-label">Normas Regulamentadoras atendidas</div></div>
-    <div><div class="stat-number">60+</div><div class="stat-label">Indicadores-chave de desempenho</div></div>
-    <div><div class="stat-number">+100%</div><div class="stat-label">Impacto no FAP sem gestão adequada</div></div>
-    <div><div class="stat-number">R$&nbsp;6,7K</div><div class="stat-label">Multa máxima por infração</div></div>
+    <div>
+      <div class="stat-number">70</div>
+      <div class="stat-label">anos de experiência em SST na indústria brasileira</div>
+      <div class="stat-source">Fonte: Portal da Indústria / SESI</div>
+    </div>
+    <div>
+      <div class="stat-number">50K</div>
+      <div class="stat-label">indústrias atendidas pelo SESI no Brasil</div>
+      <div class="stat-source">Fonte: Portal da Indústria / SESI</div>
+    </div>
+    <div>
+      <div class="stat-number">4M+</div>
+      <div class="stat-label">trabalhadores beneficiados anualmente</div>
+      <div class="stat-source">Fonte: Portal da Indústria / SESI</div>
+    </div>
+    <div>
+      <div class="stat-number">60+</div>
+      <div class="stat-label">indicadores no painel Info SESI VIVA+</div>
+      <div class="stat-source">Fonte: SESI Bahia</div>
+    </div>
   </div>
 </div>
 
-<!-- ═══════════════ CONTEÚDO ═══════════════ -->
+<!-- ═══ CENÁRIO NACIONAL ═══ -->
+<section class="section" id="cenario">
+  <div class="section-inner">
+    <span class="section-tag">O cenário nacional</span>
+    <h2>SST no Brasil: números que sua empresa não pode ignorar</h2>
+    <p class="section-sub">Os acidentes de trabalho crescem ano após ano no Brasil — e os custos financeiros e legais para as empresas acompanham essa curva. Gestão estruturada não é opção, é necessidade.</p>
+    <div class="alert-grid">
+      <div class="alert-card">
+        <div class="alert-value">724 mil</div>
+        <div class="alert-label">Acidentes de trabalho em 2024</div>
+        <div class="alert-desc">Um acidente a cada 43 segundos. A indústria de transformação está entre os setores mais afetados do país.</div>
+        <div class="alert-source">¹ MTE / Secretaria de Inspeção do Trabalho, 2025</div>
+      </div>
+      <div class="alert-card">
+        <div class="alert-value">+11,16%</div>
+        <div class="alert-label">Crescimento em relação a 2023</div>
+        <div class="alert-desc">O número de acidentes cresce consecutivamente desde 2021. A tendência de elevação contínua exige ação preventiva imediata.</div>
+        <div class="alert-source">¹ MTE / Secretaria de Inspeção do Trabalho, 2025</div>
+      </div>
+      <div class="alert-card">
+        <div class="alert-value">R$ 20 bi</div>
+        <div class="alert-label">Custo anual para o governo</div>
+        <div class="alert-desc">R$ 15 bilhões em benefícios acidentários + R$ 5 bilhões em atendimentos no SUS relacionados a acidentes de trabalho em 2023.</div>
+        <div class="alert-source">² Senado Federal, 2024</div>
+      </div>
+      <div class="alert-card">
+        <div class="alert-value">R$ 468 bi</div>
+        <div class="alert-label">Impacto estimado no PIB do Brasil</div>
+        <div class="alert-desc">A OIT estima que acidentes e doenças do trabalho consomem 4% do PIB global. No Brasil, isso equivale a R$ 468 bilhões anuais considerando o PIB de 2024.</div>
+        <div class="alert-source">³ OIT / MPT-BA, 2025</div>
+      </div>
+      <div class="alert-card">
+        <div class="alert-value">472 mil</div>
+        <div class="alert-label">Afastamentos por saúde mental em 2024</div>
+        <div class="alert-desc">Aumento de 134% em apenas dois anos, com destaque para estresse, ansiedade e depressão — riscos psicossociais agora obrigatórios no PGR pela NR-01 atualizada.</div>
+        <div class="alert-source">¹ SmartLab / MPT / OIT, 2025</div>
+      </div>
+      <div class="alert-card">
+        <div class="alert-value">2.400</div>
+        <div class="alert-label">Mortes no trabalho em 2024</div>
+        <div class="alert-desc">Uma notificação de óbito no trabalho formal a cada 3,5 horas no Brasil. O país ocupa o 4º lugar no mundo em mortes por acidentes de trabalho.</div>
+        <div class="alert-source">¹ SmartLab / MPT / OIT, 2025</div>
+      </div>
+    </div>
+    <!-- CTA 2 -->
+    <div class="section-cta">
+      <a href="#form" class="btn-primary">Quero proteger minha empresa →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BANNER CTA ═══ -->
+<div class="cta-banner">
+  <div class="cta-banner-inner">
+    <div>
+      <h3>Sua empresa está preparada para o próximo acidente?</h3>
+      <p>Empresas sem gestão estruturada de SST respondem financeiramente, juridicamente e previdenciariamente por cada ocorrência. Baixe o e-book e veja como se proteger.</p>
+    </div>
+    <!-- CTA 3 -->
+    <a href="#form" class="btn-primary lg">Baixar e-book grátis →</a>
+  </div>
+</div>
+
+<!-- ═══ CONTEÚDO DO E-BOOK ═══ -->
 <section class="section" id="conteudo">
   <div class="section-inner">
     <span class="section-tag">Conteúdo do e-book</span>
     <h2>O que você vai aprender</h2>
-    <p class="section-sub">Material desenvolvido pelo SESI Bahia com décadas de experiência em segurança e saúde no trabalho para a indústria.</p>
+    <p class="section-sub">Material desenvolvido pelo SESI Bahia com base em décadas de experiência em SST para a indústria e dados do mercado nacional.</p>
     <div class="learn-grid">
       <div class="learn-card">
         <span class="learn-icon">📋</span>
         <div class="learn-title">Complexidade regulatória</div>
-        <div class="learn-desc">Como navegar nas 38 NRs, nos eventos eSocial (S-2210, S-2220, S-2240) e nos programas obrigatórios como PGR e PCMSO.</div>
+        <div class="learn-desc">Como navegar nas 38 NRs, nos eventos eSocial (S-2210, S-2220, S-2240) e nos programas obrigatórios PGR, PCMSO, PPR e LTCAT — incluindo a nova NR-01 com riscos psicossociais.</div>
       </div>
       <div class="learn-card">
         <span class="learn-icon">💸</span>
-        <div class="learn-title">Impacto financeiro de acidentes</div>
-        <div class="learn-desc">Como os custos diretos e indiretos podem ultrapassar R$ 150 mil/ano e como a prevenção reduz esse impacto drasticamente.</div>
+        <div class="learn-title">Impacto financeiro dos acidentes</div>
+        <div class="learn-desc">Como os custos diretos (afastamentos, tratamentos, multas) e indiretos (produtividade, FAP, ações regressivas do INSS) podem comprometer a sustentabilidade do negócio.</div>
       </div>
       <div class="learn-card">
         <span class="learn-icon">📊</span>
         <div class="learn-title">Inteligência de dados em SST</div>
-        <div class="learn-desc">Como usar 60+ indicadores para acompanhar frequência de acidentes, afastamentos, conformidade e retorno financeiro.</div>
+        <div class="learn-desc">Como o Info SESI VIVA+ usa 60+ indicadores de desempenho para transformar dados brutos de acidentes, afastamentos e conformidade em decisões estratégicas.</div>
       </div>
       <div class="learn-card">
         <span class="learn-icon">⚡</span>
-        <div class="learn-title">eSocial integrado</div>
-        <div class="learn-desc">Validação automática de leiaute, tratamento de inconsistências e envio sem erros dos eventos de SST.</div>
+        <div class="learn-title">eSocial sem erros</div>
+        <div class="learn-desc">Como garantir o envio correto dos eventos S-2210, S-2220 e S-2240, evitar inconsistências e eliminar o risco de multas por envio incorreto ou fora do prazo.</div>
+      </div>
+      <div class="learn-card">
+        <span class="learn-icon">🛡️</span>
+        <div class="learn-title">Gestão do FAP</div>
+        <div class="learn-desc">Como monitorar e reduzir o Fator Acidentário de Prevenção — que pode dobrar a alíquota de contribuição previdenciária da empresa em caso de alto índice de acidentes.</div>
+      </div>
+      <div class="learn-card">
+        <span class="learn-icon">🔗</span>
+        <div class="learn-title">Gestão da cadeia de fornecedores</div>
+        <div class="learn-desc">Como certificar trabalhadores e qualificar fornecedores em SST, reduzindo riscos legais nas relações entre contratantes e contratadas no ambiente industrial.</div>
       </div>
     </div>
-    <!-- CTA 2 — Após conteúdo -->
+    <!-- CTA 4 -->
     <div class="section-cta">
       <a href="#form" class="btn-primary">Quero aprender tudo isso →</a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ BANNER CTA INTERMEDIÁRIO ═══════════════ -->
-<div class="cta-banner">
-  <div class="cta-banner-inner">
-    <div>
-      <h3>Sua empresa está em conformidade com o eSocial?</h3>
-      <p>Baixe o e-book gratuito e entenda o que pode estar em risco — e como corrigir antes que vire multa.</p>
-    </div>
-    <!-- CTA 3 — Banner intermediário -->
-    <a href="#form" class="btn-primary lg">Baixar e-book grátis →</a>
-  </div>
-</div>
-
-<!-- ═══════════════ IMPACTO FINANCEIRO ═══════════════ -->
-<section class="section" style="background: var(--navy3);">
+<!-- ═══ POR QUE O SESI ═══ -->
+<section class="section" style="background: var(--navy);">
   <div class="section-inner">
-    <span class="section-tag">O custo da inação</span>
-    <h2>O impacto real da gestão inadequada de SST</h2>
-    <p class="section-sub">Empresas que não gerenciam SST de forma estruturada enfrentam custos crescentes e riscos legais evitáveis.</p>
-    <div class="impact-grid">
-      <div class="impact-card">
-        <div class="impact-value">R$ 150K</div>
-        <div class="impact-label">Custos diretos anuais</div>
-        <div class="impact-desc">Afastamentos, tratamentos médicos e reabilitação de trabalhadores acidentados.</div>
+    <span class="section-tag" style="color:#4ADE80;">Por que o SESI VIVA+</span>
+    <h2 style="color:#ffffff;">O maior investimento privado em SST do Brasil</h2>
+    <p class="section-sub" style="color:#CBD5E1;">O SESI VIVA+ não é apenas um software de gestão. É uma metodologia exclusiva desenvolvida ao longo de 70 anos de atuação na indústria brasileira, com respaldo científico e escala nacional.</p>
+    <div class="diff-grid">
+      <div class="diff-card">
+        <div class="diff-number">70 anos</div>
+        <div class="diff-label">Referência em SST industrial</div>
+        <div class="diff-desc">O SESI atua há 70 anos na promoção da saúde e segurança dos trabalhadores da indústria brasileira, com metodologia consolidada em campo.</div>
       </div>
-      <div class="impact-card">
-        <div class="impact-value">5x</div>
-        <div class="impact-label">Custos indiretos</div>
-        <div class="impact-desc">Perda de produtividade, substituição, treinamento e impacto no clima organizacional.</div>
+      <div class="diff-card">
+        <div class="diff-number">50 mil+</div>
+        <div class="diff-label">Indústrias atendidas no Brasil</div>
+        <div class="diff-desc">Escala nacional com atendimento personalizado para empresas de todos os portes e setores da indústria, da grande à pequena empresa.</div>
       </div>
-      <div class="impact-card">
-        <div class="impact-value">R$ 6,7K</div>
-        <div class="impact-label">Multas por infração</div>
-        <div class="impact-desc">Penalidades por descumprimento de NRs e envio incorreto de eventos ao eSocial.</div>
+      <div class="diff-card">
+        <div class="diff-number">4M+</div>
+        <div class="diff-label">Trabalhadores beneficiados/ano</div>
+        <div class="diff-desc">Mais de 4 milhões de pessoas beneficiadas anualmente com programas de segurança e saúde no trabalho ofertados pelo SESI em todo o Brasil.</div>
       </div>
-      <div class="impact-card">
-        <div class="impact-value">+100%</div>
-        <div class="impact-label">Alíquota FAP elevada</div>
-        <div class="impact-desc">Empresas com alto índice de acidentes pagam o dobro no Fator Acidentário de Prevenção.</div>
+      <div class="diff-card">
+        <div class="diff-number">Sírio-Libanês</div>
+        <div class="diff-label">Parceria científica exclusiva</div>
+        <div class="diff-desc">Dados dos trabalhadores alimentam estudos epidemiológicos em parceria com o Hospital Sírio-Libanês para apoiar decisões de saúde nas indústrias.</div>
       </div>
     </div>
-    <!-- CTA 4 — Após impacto financeiro -->
+    <!-- CTA 5 -->
     <div class="section-cta">
-      <a href="#form" class="btn-primary">Quero evitar esses custos →</a>
+      <a href="#form" class="btn-primary">Quero o e-book grátis →</a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ PLATAFORMA ═══════════════ -->
+<!-- ═══ PLATAFORMA ═══ -->
 <section class="section">
   <div class="section-inner">
     <span class="section-tag">A solução</span>
     <h2>O SESI VIVA+ na prática</h2>
-    <p class="section-sub">Uma plataforma integrada, desenvolvida para a realidade industrial brasileira, que vai além do cumprimento de obrigações legais.</p>
+    <p class="section-sub">Uma plataforma integrada com programas legais parametrizados conforme as exigências do governo federal, desenvolvida para a realidade industrial brasileira.</p>
     <div class="modules-grid">
       <div class="module-card">
         <div class="module-title">Sistema completo de SST</div>
-        <div class="module-desc">PGR e PCMSO pré-configurados, fluxos inteligentes de gestão e alertas automáticos para vencimento de documentos e exames ocupacionais.</div>
+        <div class="module-desc">PGR e PCMSO pré-configurados, workflow dos programas legais, alertas automáticos de não conformidades e vencimento de documentos e exames ocupacionais.</div>
       </div>
       <div class="module-card">
         <div class="module-title">eSocial integrado</div>
-        <div class="module-desc">Leiaute validado, envio automatizado e tratamento de inconsistências nos eventos S-2210, S-2220 e S-2240 sem retrabalho.</div>
+        <div class="module-desc">Layout validado, envio automatizado e tratamento de inconsistências nos eventos S-2210, S-2220 e S-2240. Integração com sistemas de folha de pagamento.</div>
       </div>
       <div class="module-card">
-        <div class="module-title">Info SESI VIVA+ — Dados em ação</div>
-        <div class="module-desc">60+ indicadores de acidentes, afastamentos, conformidade e retorno financeiro com painéis personalizáveis e análises preditivas.</div>
+        <div class="module-title">Info SESI VIVA+ — Business Intelligence em SST</div>
+        <div class="module-desc">60+ indicadores de gestão em painéis personalizáveis: risco legal, processos de SST, perfil de saúde populacional, estilo de vida do trabalhador e análises preditivas.</div>
       </div>
       <div class="module-card">
-        <div class="module-title">Modelagem SESI exclusiva</div>
-        <div class="module-desc">Parametrização específica para sua empresa, consultoria técnica especializada e atualizações automáticas conforme legislação.</div>
+        <div class="module-title">Gestão de afastamentos e FAP</div>
+        <div class="module-desc">Controle completo dos afastamentos por adoecimento e acidentes, com monitoramento dos indicadores que impactam diretamente no FAP e nos custos previdenciários.</div>
       </div>
     </div>
-    <!-- CTA 5 — Após módulos -->
+    <!-- CTA 6 -->
     <div class="section-cta">
       <a href="#form" class="btn-primary">Baixar e-book com tudo isso →</a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ PARA QUEM É ═══════════════ -->
-<section class="section" style="background: var(--navy3);">
+<!-- ═══ PARA QUEM É ═══ -->
+<section class="section" style="background: #EFF6FF;">
   <div class="section-inner">
     <span class="section-tag">Para quem é</span>
     <h2>Este e-book foi feito para você</h2>
@@ -356,53 +434,66 @@
     <div class="audience-grid">
       <div class="audience-card">
         <div class="aud-dot"></div>
-        <div><strong>Gestores de RH e SST</strong><span>Que precisam estruturar processos e garantir conformidade com as NRs.</span></div>
+        <div><strong>Gestores de RH e SST</strong><span>Que precisam estruturar processos, cumprir as NRs e garantir conformidade com o eSocial.</span></div>
       </div>
       <div class="audience-card">
         <div class="aud-dot"></div>
-        <div><strong>Diretores e CEOs industriais</strong><span>Que querem reduzir custos com afastamentos e riscos jurídicos.</span></div>
+        <div><strong>Diretores e CEOs industriais</strong><span>Que querem reduzir custos com afastamentos, FAP elevado e riscos jurídicos e previdenciários.</span></div>
       </div>
       <div class="audience-card">
         <div class="aud-dot"></div>
-        <div><strong>Técnicos de segurança</strong><span>Que buscam ferramentas inteligentes para decisões baseadas em dados.</span></div>
+        <div><strong>Técnicos de Segurança do Trabalho</strong><span>Que buscam ferramentas e dados estruturados para embasar decisões preventivas.</span></div>
       </div>
       <div class="audience-card">
         <div class="aud-dot"></div>
-        <div><strong>Empresas com eSocial ativo</strong><span>Que precisam garantir envio correto dos eventos de SST sem erros.</span></div>
+        <div><strong>Empresas com eSocial ativo</strong><span>Que precisam garantir o envio correto dos eventos de SST sem erros, multas ou inconsistências.</span></div>
       </div>
     </div>
-    <!-- CTA 6 — Após público -->
-    <div class="section-cta" style="display:flex; gap:14px; flex-wrap:wrap;">
+    <!-- CTA 7 -->
+    <div class="section-cta">
       <a href="#form" class="btn-primary">Me identifico — quero o e-book →</a>
-      <a href="https://www.sesisstba.com.br" target="_blank" class="btn-outline">Conhecer o SESI VIVA+</a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ QUOTE ═══════════════ -->
+<!-- ═══ QUOTE ═══ -->
 <section class="quote-section">
   <div class="quote-inner">
-    <blockquote>Empresas que contratam a modelagem SESI têm acesso a uma metodologia exclusiva, desenvolvida ao longo de décadas de experiência.</blockquote>
-    <p class="quote-source">SESI Bahia · SESI VIVA+</p>
-    <!-- CTA 7 — Após quote -->
+    <blockquote>Ao se trabalhar a gestão de SST de forma efetiva, com informações e dados consistentes, é possível melhorar a tomada de decisão e obter tanto redução de custos quanto melhora na produtividade e na imagem da empresa.</blockquote>
+    <p class="quote-source">Rafael Lucchesi, Diretor-Superintendente do SESI Nacional</p>
+    <!-- CTA 8 -->
     <a href="#form" class="btn-primary">Quero esse e-book →</a>
   </div>
 </section>
 
-<!-- ═══════════════ CTA FINAL ═══════════════ -->
+<!-- ═══ CTA FINAL ═══ -->
 <section class="cta-final">
   <div class="cta-final-inner">
     <h2>Transforme sua gestão de SST agora</h2>
-    <p>Baixe gratuitamente o e-book do SESI VIVA+ e descubra como estruturar segurança e saúde no trabalho com inteligência de dados.</p>
-    <!-- CTA 8 — Final (duplo) -->
+    <p>Baixe gratuitamente o e-book do SESI VIVA+ e descubra como estruturar segurança e saúde no trabalho com inteligência de dados — e proteger sua empresa dos riscos que crescem todo ano.</p>
+    <!-- CTA 9 -->
     <div class="cta-final-btns">
       <a href="#form" class="btn-primary lg">Baixar e-book grátis →</a>
-      <a href="https://www.sesisstba.com.br" target="_blank" class="btn-outline">Conhecer o SESI VIVA+</a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ FOOTER ═══════════════ -->
+<!-- ═══ FONTES ═══ -->
+<section class="sources-section">
+  <div class="sources-inner">
+    <p class="sources-title">Fontes dos dados apresentados</p>
+    <ul class="sources-list">
+      <li>Ministério do Trabalho e Emprego (MTE) / Secretaria de Inspeção do Trabalho (SIT) — Campanha Nacional de Prevenção de Acidentes do Trabalho (CANPAT), jul. 2025. Disponível em: gov.br/trabalho-e-emprego</li>
+      <li>Senado Federal do Brasil — Custos dos acidentes de trabalho para o sistema de saúde e previdência, 2024.</li>
+      <li>Organização Internacional do Trabalho (OIT) / Ministério Público do Trabalho (MPT) — Observatório de Saúde e Segurança no Trabalho (SmartLab), abr. 2025. Disponível em: prt5.mpt.mp.br</li>
+      <li>INSS / Ministério da Previdência Social — Anuário Estatístico de Acidentes do Trabalho (AEAT) 2023, dez. 2024. Disponível em: gov.br/previdencia</li>
+      <li>Portal da Indústria / SESI Nacional — SESI VIVA+: escala e impacto. Disponível em: portaldaindustria.com.br/sesi/canais/sesi-viva-mais</li>
+      <li>SESI Bahia — SESI VIVA+: plataforma de gestão de SST. Disponível em: sesisstba.com.br/solucoes/sesi-viva-mais</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="footer-brand">SESI <span>VIVA+</span> · SESI Bahia</div>
   <div class="footer-links">
