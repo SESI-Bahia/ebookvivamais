@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[E-BOOK] Seu Título Aqui</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0A0E1A;
+      --bg2:       #111827;
+      --bg3:       #1a2235;
+      --accent:    #F97316;
+      --accent2:   #FB923C;
+      --text:      #F1F5F9;
+      --muted:     #94A3B8;
+      --border:    rgba(255,255,255,0.08);
+      --card:      rgba(255,255,255,0.04);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--text);
+      letter-spacing: -0.5px;
+    }
+    .logo span { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 72px 40px 80px;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(249,115,22,0.12);
+      border: 1px solid rgba(249,115,22,0.3);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent2);
+      margin-bottom: 24px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero-desc {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .stat-number {
+      font-family: 'Sora', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ── FORM CARD (slot para Dynamics) ── */
+    .form-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 32px;
+      position: sticky;
+      top: 24px;
+    }
+    .form-card h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .form-card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    /* ── DYNAMICS EMBED SLOT ── */
+    /*
+      INSTRUÇÕES PARA EMBED DO DYNAMICS 365 CIJ:
+      1. No Dynamics 365 Customer Insights - Journeys, vá em
+         Marketing > Internet Marketing > Marketing Forms
+      2. Abra o formulário desejado e clique em "Go live"
+      3. Na aba "Form hosting", copie o snippet de embed
+      4. Cole o snippet abaixo, dentro da div #dynamics-form-slot
+         substituindo o conteúdo de demonstração.
+      
+      O snippet terá este formato:
+      <div data-form-id="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+           data-form-api-url="https://SEU_ORG.dynamics.com/api/cts/v1/orgs/SEU_ORG_ID/landingpageforms"
+           data-cached-form-url="https://mktdplp102cdn.azureedge.net/public/...">
+      </div>
+      <script src="https://mktdplp102cdn.azureedge.net/public/.../js/form-loader.js?v=..."></script>
+    */
+    .dynamics-slot {
+      border: 2px dashed rgba(249,115,22,0.4);
+      border-radius: 10px;
+      padding: 32px 20px;
+      text-align: center;
+      background: rgba(249,115,22,0.04);
+    }
+    .dynamics-slot-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .dynamics-slot h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent2);
+      margin-bottom: 6px;
+    }
+    .dynamics-slot p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+    .dynamics-slot code {
+      display: block;
+      margin-top: 12px;
+      background: rgba(0,0,0,0.4);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 11px;
+      color: #94A3B8;
+      text-align: left;
+      line-height: 1.6;
+      word-break: break-all;
+    }
+
+    /* ── SEÇÃO PARA QUEM É ── */
+    .section {
+      border-top: 1px solid var(--border);
+      padding: 80px 40px;
+    }
+    .section-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .section-tag {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .section h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 800;
+      margin-bottom: 48px;
+      letter-spacing: -0.5px;
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .audience-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .audience-icon {
+      width: 40px; height: 40px;
+      background: rgba(249,115,22,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .audience-card strong {
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .audience-card span {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── CASOS / RESULTADOS ── */
+    .results-section {
+      background: var(--bg3);
+    }
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .result-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 24px;
+    }
+    .result-emoji {
+      font-size: 28px;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .result-company {
+      font-family: 'Sora', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .result-metric {
+      font-family: 'Sora', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .result-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ── CTA BANNER ── */
+    .cta-section {
+      padding: 80px 40px;
+    }
+    .cta-inner {
+      max-width: 740px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .cta-inner h2 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    .cta-inner p {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 16px 36px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .cta-btn:hover { background: var(--accent2); transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      text-align: center;
+    }
+    footer p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 48px 24px 64px;
+        gap: 48px;
+      }
+      .form-card { position: static; }
+      .section { padding: 56px 24px; }
+      .cta-section { padding: 56px 24px; }
+      header { padding: 16px 24px; }
+      footer { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header>
+    <div class="logo">SUA<span>MARCA</span></div>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section>
+    <div class="hero">
+
+      <!-- COLUNA ESQUERDA -->
+      <div class="hero-left">
+        <div class="hero-badge">E-BOOK GRATUITO</div>
+        <h1>
+          O título do<br/>
+          seu <em>e-book</em><br/>
+          vai aqui
+        </h1>
+        <p class="hero-desc">
+          Subtítulo explicando o que o leitor vai descobrir e por que vale a pena baixar agora. Foque na transformação que o material entrega.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">+50%</span>
+            <span class="stat-label">de resultado A</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">de resultado B</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">R$ 3M</span>
+            <span class="stat-label">gerados pelos clientes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLUNA DIREITA: FORM CARD -->
+      <div class="form-card">
+        <h2>Baixe grátis agora</h2>
+        <p>Preencha os dados e receba o material no seu e-mail.</p>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             SLOT DO DYNAMICS 365 CUSTOMER INSIGHTS - JOURNEYS
+             Cole aqui o snippet de embed gerado na plataforma.
+             Remova a div .dynamics-slot abaixo ao adicionar o código real.
+        ════════════════════════════════════════════════════════════════ -->
+        <div id="dynamics-form-slot">
+
+          <div
+            data-form-id='62dd8b02-3371-f011-bec1-6045bd3a56d8'
+            data-form-api-url='https://public-sam.mkt.dynamics.com/api/v1.0/orgs/c0c3fd9d-93fe-ef11-b016-002248dea7ea/landingpageforms'
+            data-cached-form-url='https://assets1-sam.mkt.dynamics.com/c0c3fd9d-93fe-ef11-b016-002248dea7ea/digitalassets/forms/62dd8b02-3371-f011-bec1-6045bd3a56d8'>
+          </div>
+          <script src='https://formui-usa1.mkt.dynamics.com/sam/FormLoader/FormLoader.bundle.js'></script>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── PARA QUEM É ── -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-tag">Para quem é</div>
+      <h2>Este material foi feito para você que…</h2>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <div class="audience-icon">📊</div>
+          <strong>Perfil A</strong>
+          <span>Breve descrição de quem é esse perfil e o que ele busca resolver.</span>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">🚀</div>
+          <strong>Perfil B</strong>
+          <span>Breve descrição de quem é esse perfil e o que ele busca resolver.</span>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">💡</div>
+          <strong>Perfil C</strong>
+          <span>Breve descrição de quem é esse perfil e o que ele busca resolver.</span>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">🎯</div>
+          <strong>Perfil D</strong>
+          <span>Breve descrição de quem é esse perfil e o que ele busca resolver.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RESULTADOS / CASOS ── -->
+  <section class="section results-section">
+    <div class="section-inner">
+      <div class="section-tag">O que você vai aprender</div>
+      <h2>Resultados reais de quem já aplicou</h2>
+      <div class="results-grid">
+        <div class="result-card">
+          <span class="result-emoji">📈</span>
+          <div class="result-company">Empresa A</div>
+          <div class="result-metric">+50%</div>
+          <div class="result-desc">Descrição curta do resultado que a empresa alcançou e como o método foi aplicado.</div>
+        </div>
+        <div class="result-card">
+          <span class="result-emoji">🚀</span>
+          <div class="result-company">Empresa B</div>
+          <div class="result-metric">98%</div>
+          <div class="result-desc">Descrição curta do resultado que a empresa alcançou e como o método foi aplicado.</div>
+        </div>
+        <div class="result-card">
+          <span class="result-emoji">💰</span>
+          <div class="result-company">Empresa C</div>
+          <div class="result-metric">R$ 3M</div>
+          <div class="result-desc">Descrição curta do resultado que a empresa alcançou e como o método foi aplicado.</div>
+        </div>
+        <div class="result-card">
+          <span class="result-emoji">⚡</span>
+          <div class="result-company">Empresa D</div>
+          <div class="result-metric">−60%</div>
+          <div class="result-desc">Descrição curta do resultado que a empresa alcançou e como o método foi aplicado.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA FINAL ── -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Dados não mentem. E os resultados aparecem.</h2>
+      <p>Baixe o e-book agora e veja como aplicar na sua empresa.</p>
+      <a href="#dynamics-form-slot" class="cta-btn">
+        Baixar e-book grátis →
+      </a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>© 2025 Sua Empresa. Todos os direitos reservados. · <a href="#" style="color: var(--muted);">Política de privacidade</a></p>
+  </footer>
+
+</body>
+</html>
