@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Leitura Personalizado | Escola SESI Bahia</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sesi-blue:       #005BAC;
+    --sesi-blue-dark:  #004488;
+    --sesi-blue-light: #E8F1FA;
+    --sesi-red:        #E8381A;
+    --sesi-gray:       #F5F5F5;
+    --sesi-border:     #DDDFE3;
+    --ink:             #1A1A2A;
+    --muted:           #6B7280;
+    --white:           #FFFFFF;
+    --success:         #1E7E44;
+    --success-bg:      #EAF5EE;
+    --error:           #C0392B;
+    --error-bg:        #FDECEA;
+    /* perfil dinâmico */
+    --perfil-cor:      #005BAC;
+    --perfil-light:    #E8F1FA;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    font-family: 'Open Sans', sans-serif;
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ─── BARRA TOPO ─── */
+  .topbar {
+    background: var(--sesi-blue);
+    height: 5px;
+    width: 100%;
+  }
+
+  /* ─── HEADER ─── */
+  .header {
+    background: var(--white);
+    border-bottom: 1px solid var(--sesi-border);
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 84px;
+  }
+
+  /* ─── LOGO ─── */
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+  }
+
+  .logo-img {
+    height: 56px;
+    width: auto;
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .logo-divider {
+    width: 1px;
+    height: 32px;
+    background: var(--sesi-border);
+    flex-shrink: 0;
+  }
+
+  .logo-bahia {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .header-site-link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--sesi-blue);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border: 1.5px solid var(--sesi-blue);
+    border-radius: 6px;
+    transition: all 0.2s;
+    letter-spacing: 0.04em;
+  }
+
+  .header-site-link:hover {
+    background: var(--sesi-blue);
+    color: white;
+  }
+
+  /* ─── HERO BANNER ─── */
+  .hero-banner {
+    background: linear-gradient(135deg, var(--sesi-blue) 0%, var(--sesi-blue-dark) 100%);
+    padding: 52px 24px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-banner::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .hero-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -40px;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-event-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero-event-tag-dot {
+    width: 6px; height: 6px;
+    background: #7ECBFF;
+    border-radius: 50%;
+  }
+
+  .hero-greeting {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 8px;
+  }
+
+  .hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 800;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-title-accent {
+    color: #7ECBFF;
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    max-width: 580px;
+    line-height: 1.75;
+  }
+
+  /* ─── PERFIL BADGE (dentro do hero) ─── */
+  .perfil-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 12px 20px;
+  }
+
+  .perfil-badge-emoji { font-size: 22px; }
+
+  .perfil-badge-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.03em;
+  }
+
+  .perfil-badge-text span {
+    display: block;
+    font-weight: 400;
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* ─── BODY LAYOUT ─── */
+  .body-layout {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 48px;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .body-layout { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* ─── COLUNA ESQUERDA (info) ─── */
+  .info-col {}
+
+  .section-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sesi-blue);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+
+  .section-title em {
+    color: var(--perfil-cor);
+    font-style: normal;
+  }
+
+  .section-text {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  /* ─── GUIDE PREVIEW ─── */
+  .guide-preview {
+    background: var(--white);
+    border: 1px solid var(--sesi-border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 28px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  }
+
+  .guide-preview-header {
+    background: var(--perfil-cor);
+    padding: 24px 24px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .guide-preview-header::after {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+  }
+
+  .guide-preview-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 6px;
+  }
+
+  .guide-preview-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    position: relative;
+    z-index: 1;
+  }
+
+  .guide-preview-emoji {
+    position: absolute;
+    right: 20px; bottom: 14px;
+    font-size: 30px;
+    z-index: 1;
+    opacity: 0.85;
+  }
+
+  .guide-preview-body { padding: 20px 24px 24px; }
+
+  .guide-preview-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .guide-features { display: flex; flex-direction: column; gap: 10px; }
+
+  .guide-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .feat-check {
+    width: 18px; height: 18px;
+    background: var(--perfil-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ─── DIFERENCIAIS ─── */
+  .diferenciais {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .diferencial-card {
+    background: var(--sesi-gray);
+    border-radius: 10px;
+    padding: 18px 16px;
+    border-left: 3px solid var(--sesi-blue);
+  }
+
+  .diferencial-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--sesi-blue);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .diferencial-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── COLUNA DIREITA (form) ─── */
+  .form-col {}
+
+  .form-card {
+    background: var(--white);
+    border: 1px solid var(--sesi-border);
+    border-radius: 14px;
+    padding: 32px 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    position: sticky;
+    top: 100px;
+  }
+
+  .form-card-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 6px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .form-card-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  .form-divider {
+    height: 1px;
+    background: var(--sesi-border);
+    margin: 20px 0;
+  }
+
+  /* ─── INPUTS ─── */
+  .form-group { margin-bottom: 16px; }
+
+  .form-label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 7px;
+    letter-spacing: 0.03em;
+  }
+
+  .form-label .req { color: var(--sesi-red); margin-left: 2px; }
+
+  .form-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--sesi-border);
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    background: var(--white);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    -webkit-appearance: none;
+  }
+
+  .form-input::placeholder { color: #B5BAC3; }
+
+  .form-input:focus {
+    border-color: var(--sesi-blue);
+    box-shadow: 0 0 0 3px rgba(0,91,172,0.1);
+  }
+
+  .form-input.err {
+    border-color: var(--error);
+    box-shadow: 0 0 0 3px var(--error-bg);
+  }
+
+  .err-msg {
+    font-size: 12px;
+    color: var(--error);
+    margin-top: 5px;
+    display: none;
+    font-weight: 500;
+  }
+
+  .err-msg.show { display: block; }
+
+  /* ─── CONSENT ─── */
+  .consent-wrap {
+    background: var(--sesi-gray);
+    border: 1.5px solid var(--sesi-border);
+    border-radius: 10px;
+    padding: 16px;
+    transition: border-color 0.2s, background 0.2s;
+    cursor: pointer;
+  }
+
+  .consent-wrap.on {
+    border-color: var(--sesi-blue);
+    background: var(--sesi-blue-light);
+  }
+
+  .consent-wrap.err-state {
+    border-color: var(--error);
+    background: var(--error-bg);
+  }
+
+  .consent-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    cursor: pointer;
+  }
+
+  .cb-input {
+    position: absolute;
+    opacity: 0;
+    width: 0; height: 0;
+  }
+
+  .cb-visual {
+    width: 20px; height: 20px;
+    border: 2px solid var(--sesi-border);
+    border-radius: 5px;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    transition: all 0.18s;
+  }
+
+  .cb-input:checked + .cb-visual {
+    background: var(--sesi-blue);
+    border-color: var(--sesi-blue);
+  }
+
+  .cb-input:checked + .cb-visual svg { display: block; }
+  .cb-visual svg { display: none; }
+
+  .cb-text {
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.6;
+    user-select: none;
+  }
+
+  .cb-text strong { font-weight: 600; }
+
+  .consent-detail {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--sesi-border);
+    font-size: 11.5px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .consent-detail a { color: var(--sesi-blue); text-decoration: underline; }
+
+  .consent-detail ul {
+    padding-left: 14px;
+    margin-top: 6px;
+  }
+
+  .consent-detail li { margin-bottom: 3px; }
+
+  /* ─── BOTÃO SUBMIT ─── */
+  .btn-submit {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px 20px;
+    background: var(--sesi-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn-submit:hover {
+    background: var(--sesi-blue-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0,91,172,0.3);
+  }
+
+  .btn-submit:active { transform: translateY(0); }
+
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .spinner {
+    width: 17px; height: 17px;
+    border: 2px solid rgba(255,255,255,0.35);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: none;
+  }
+
+  .btn-submit.loading .btn-label { display: none; }
+  .btn-submit.loading .spinner   { display: block; }
+
+  .lgpd-fine {
+    margin-top: 12px;
+    font-size: 11px;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  .lgpd-fine a { color: var(--muted); text-decoration: underline; }
+
+  /* ─── TRUST BADGES ─── */
+  .trust-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+  }
+
+  .trust-icon {
+    width: 16px; height: 16px;
+    color: var(--sesi-blue);
+  }
+
+  /* ─── SUCCESS ─── */
+  #success-state {
+    display: none;
+  }
+
+  #success-state.show {
+    display: block;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(20px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  .success-wrap {
+    text-align: center;
+    padding: 32px 8px 24px;
+  }
+
+  .success-icon-ring {
+    width: 68px; height: 68px;
+    background: var(--success-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+
+  .success-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .success-sub {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .btn-download {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 20px;
+    background: var(--sesi-blue);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    transition: all 0.2s;
+    box-shadow: 0 4px 16px rgba(0,91,172,0.25);
+  }
+
+  .btn-download:hover {
+    background: var(--sesi-blue-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0,91,172,0.3);
+  }
+
+  .next-steps-card {
+    margin-top: 20px;
+    background: var(--sesi-gray);
+    border-radius: 10px;
+    padding: 18px;
+    text-align: left;
+  }
+
+  .ns-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .ns-item {
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--ink);
+    line-height: 1.55;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--sesi-border);
+  }
+
+  .ns-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .ns-num {
+    width: 20px; height: 20px;
+    background: var(--sesi-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ─── FOOTER ─── */
+  .site-footer {
+    background: var(--ink);
+    padding: 36px 24px;
+    margin-top: 0;
+  }
+
+  .footer-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 4px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: white; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 480px) {
+    .hero-banner { padding: 36px 20px 40px; }
+    .body-layout { padding: 32px 16px 60px; }
+    .form-card { padding: 24px 18px; }
+    .trust-row { flex-direction: column; gap: 8px; }
+    .diferenciais { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .header-site-link { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- BARRA AZUL TOPO -->
+<div class="topbar"></div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="https://www.escolasesiba.com.br" class="logo-wrap">
+      <img src="data:image/png;base64,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BgLFXrae0zqPUUrY7DYrlcy444qame9g9bgOFvrJCn7aTs11TquC7bhSRxwRkObaYHhxkP8AeyDkB+a3OfxvBedxe0LWPtv9u/yPqlQqVX7KPb7F+i6i22O4azr4jG+6hsFC1wwe4aSXP9T3Yx6GA+KjLtg3P5fvNLShxLbdb4KbGeQceKU/CQe5XRgiip4I4IImRRRtDGMY0Na1oGAAB0AC+fe9NbNdN3NV1kjJGk3SaEBzSDwxHum/6WBUelVXdX068un0S+B33kFRt4011NQVq+w3a+603qW9uZh1TWxUrSfERM4+Xtm+HoVVeF34p9yvJ2WLRJadlLOJoXQzVj5qt4c0tJD5HcBwfNgYu7XavDa8PVpfP5Hhp8M1s9CUURFjC9CIiAIiIAiIgOiqoqOqBFTSQTgjBEkYdn3rDZp6wMeHssdsa4dHCkYCPgvTRSpNcmRhHCKKOJgZFG1jB0a0YAXNEUEhERAFi1dtt1Yc1dBS1Bzn77C137wspEzgGFBabVT/AIC2UUXPP0IGt/cFlxxsjbwxsaxvk0YC5Ipbb5jAREUAxau226s/7ugpajnn77C13P2hY8On7DC8PhsltjcOhZSsB+AXpIp4mu8jCPxjWsaGtaGtHQAYC/URQSFxMcbjlzGknxIXJEBw7qL+rZ+qFzREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAf/2Q==" alt="Escola SESI" class="logo-img">
+      <div class="logo-divider"></div>
+      <span class="logo-bahia">Educação Regular</span>
+    </a>
+    <a href="https://www.escolasesiba.com.br" class="header-site-link" target="_blank">
+      ← Voltar ao site
+    </a>
+  </div>
+</header>
+
+<!-- HERO BANNER -->
+<section class="hero-banner">
+  <div class="hero-inner">
+    <div class="hero-event-tag">
+      <span class="hero-event-tag-dot"></span>
+      Bienal do Livro de Salvador 2025
+    </div>
+    <p class="hero-greeting" id="hero-greeting">Olá!</p>
+    <h1 class="hero-title">
+      Seu Guia de Leitura<br>
+      <span class="hero-title-accent" id="hero-accent">Personalizado está pronto.</span>
+    </h1>
+    <p class="hero-sub" id="hero-sub">
+      Você participou do nosso quiz na Bienal e descobriu seu perfil de leitor. Preparamos um guia com curadoria de livros e dicas especialmente para você — confirme seus dados abaixo para receber gratuitamente.
+    </p>
+    <div class="perfil-badge" id="perfil-badge" style="display:none">
+      <span class="perfil-badge-emoji" id="badge-emoji">📚</span>
+      <div class="perfil-badge-text">
+        <span id="badge-tipo">Leitor SESI</span>
+        <span>Seu perfil</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="body-layout">
+
+  <!-- COLUNA INFO -->
+  <div class="info-col">
+    <div class="section-eyebrow">O que você vai receber</div>
+    <h2 class="section-title">Um guia feito para o<br>leitor <em id="perfil-title-name">como você.</em></h2>
+    <p class="section-text">
+      Com base no seu perfil identificado no quiz, selecionamos gêneros literários, títulos recomendados para adultos e para leitura em família, e dicas para tornar os livros um momento de conexão com seu filho.
+    </p>
+
+    <!-- GUIDE PREVIEW CARD -->
+    <div class="guide-preview">
+      <div class="guide-preview-header" id="guide-header">
+        <div class="guide-preview-label">Seu guia · Perfil</div>
+        <div class="guide-preview-name" id="guide-preview-name">Leitor SESI</div>
+        <span class="guide-preview-emoji" id="guide-preview-emoji">📚</span>
+      </div>
+      <div class="guide-preview-body">
+        <div class="guide-preview-sub">Conteúdo incluído</div>
+        <div class="guide-features">
+          <div class="guide-feature">
+            <div class="feat-check">
+              <svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 5.7L8 1" stroke="var(--perfil-cor)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Curadoria de gêneros literários para o seu perfil</span>
+          </div>
+          <div class="guide-feature">
+            <div class="feat-check">
+              <svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 5.7L8 1" stroke="var(--perfil-cor)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Indicações de títulos para adultos e para jovens leitores</span>
+          </div>
+          <div class="guide-feature">
+            <div class="feat-check">
+              <svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 5.7L8 1" stroke="var(--perfil-cor)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Dicas para ler junto com seu filho em casa</span>
+          </div>
+          <div class="guide-feature">
+            <div class="feat-check">
+              <svg width="9" height="7" viewBox="0 0 9 7" fill="none"><path d="M1 3.5L3.2 5.7L8 1" stroke="var(--perfil-cor)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>PDF gratuito para baixar e guardar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIFERENCIAIS SESI -->
+    <div style="margin-top:36px">
+      <div class="section-eyebrow">A Rede Escola SESI Bahia</div>
+      <div class="diferenciais">
+        <div class="diferencial-card">
+          <div class="diferencial-num">12</div>
+          <div class="diferencial-label">Escolas em toda a Bahia</div>
+        </div>
+        <div class="diferencial-card">
+          <div class="diferencial-num">50+</div>
+          <div class="diferencial-label">Anos de história em educação</div>
+        </div>
+        <div class="diferencial-card">
+          <div class="diferencial-num">11 mil</div>
+          <div class="diferencial-label">Matrículas em 2026</div>
+        </div>
+        <div class="diferencial-card">
+          <div class="diferencial-num">793</div>
+          <div class="diferencial-label">Educadores qualificados</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLUNA FORM -->
+  <div class="form-col">
+    <div class="form-card">
+
+      <!-- FORM STATE -->
+      <div id="form-state">
+        <div class="form-card-title">Confirme seus dados</div>
+        <p class="form-card-sub">Preencha abaixo para receber o guia gratuitamente no seu e-mail.</p>
+
+        <div class="form-divider"></div>
+
+        <form id="main-form" novalidate>
+
+          <div class="form-group">
+            <label class="form-label" for="f-nome">Nome <span class="req">*</span></label>
+            <input class="form-input" type="text" id="f-nome" name="nome"
+              placeholder="Como prefere ser chamado?"
+              autocomplete="given-name" required>
+            <div class="err-msg" id="e-nome">Por favor, informe seu nome.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="f-email">E-mail <span class="req">*</span></label>
+            <input class="form-input" type="email" id="f-email" name="email"
+              placeholder="seu@email.com"
+              autocomplete="email" required>
+            <div class="err-msg" id="e-email">Informe um e-mail válido.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="f-phone">WhatsApp <span style="color:var(--muted);font-weight:400">(opcional)</span></label>
+            <input class="form-input" type="tel" id="f-phone" name="phone"
+              placeholder="(71) 9 0000-0000"
+              autocomplete="tel">
+          </div>
+
+          <div class="form-divider"></div>
+
+          <!-- CONSENTIMENTO LGPD -->
+          <div class="form-group">
+            <label class="form-label">Autorização de comunicação <span class="req">*</span></label>
+            <div class="consent-wrap" id="consent-wrap">
+              <label class="consent-row">
+                <input class="cb-input" type="checkbox" id="cb-consent">
+                <div class="cb-visual">
+                  <svg width="11" height="8" viewBox="0 0 11 8" fill="none">
+                    <path d="M1 4L4 7L10 1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="cb-text">
+                  <strong>Autorizo a Escola SESI Bahia</strong> a entrar em contato comigo por e-mail com conteúdos educacionais, informações sobre matrículas e novidades da rede.
+                </span>
+              </label>
+              <div class="consent-detail">
+                Dados tratados pelo <strong>SESI Bahia (CNPJ 03.648.359/0001-18)</strong> conforme a <strong>LGPD — Lei 13.709/2018</strong>. Você pode revogar este consentimento a qualquer momento pelo link de descadastro nos nossos e-mails ou pelo <a href="mailto:privacidade@sesi.org.br">privacidade@sesi.org.br</a>.
+                <ul>
+                  <li>Não compartilhamos seus dados com terceiros para fins comerciais</li>
+                  <li>Exclusão de dados sob demanda, sem custo</li>
+                  <li>Consentimento revogável a qualquer momento</li>
+                </ul>
+              </div>
+            </div>
+            <div class="err-msg" id="e-consent">Autorize o contato para receber o guia.</div>
+          </div>
+
+          <button class="btn-submit" type="submit" id="btn-submit">
+            <span class="btn-label">Quero receber meu guia →</span>
+            <span class="spinner"></span>
+          </button>
+
+          <p class="lgpd-fine">
+            Ao confirmar, você concorda com nossa <a href="#">Política de Privacidade</a>.<br>
+            Protegido pela LGPD · Sem spam, garantido.
+          </p>
+
+          <div class="trust-row">
+            <div class="trust-item">
+              <svg class="trust-icon" viewBox="0 0 16 16" fill="none">
+                <path d="M8 1L10.5 5.5L15 6.27L11.5 9.67L12.35 14L8 11.77L3.65 14L4.5 9.67L1 6.27L5.5 5.5L8 1Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+              </svg>
+              Gratuito
+            </div>
+            <div class="trust-item">
+              <svg class="trust-icon" viewBox="0 0 16 16" fill="none">
+                <rect x="2" y="7" width="12" height="8" rx="2" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M5 7V5C5 3.34 6.34 2 8 2C9.66 2 11 3.34 11 5V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+              Dados seguros
+            </div>
+            <div class="trust-item">
+              <svg class="trust-icon" viewBox="0 0 16 16" fill="none">
+                <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.2"/>
+                <path d="M5.5 8L7 9.5L10.5 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              LGPD
+            </div>
+          </div>
+
+        </form>
+      </div><!-- /form-state -->
+
+      <!-- SUCCESS STATE -->
+      <div id="success-state">
+        <div class="success-wrap">
+          <div class="success-icon-ring">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+              <path d="M5 15L11.5 21.5L25 8" stroke="var(--success)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="success-title">Tudo certo, <span id="s-nome">leitor</span>!</div>
+          <p class="success-sub">
+            Consentimento registrado com sucesso. Clique abaixo para acessar seu Guia de Leitura personalizado agora mesmo.
+          </p>
+          <a href="#" class="btn-download" id="btn-download" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M8 2V10M8 10L5 7M8 10L11 7" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 12H14" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+            Abrir meu Guia de Leitura
+          </a>
+          <div class="next-steps-card">
+            <div class="ns-title">Próximos passos</div>
+            <div class="ns-item">
+              <div class="ns-num">1</div>
+              <span>Você receberá um e-mail de confirmação com o link do guia para salvar.</span>
+            </div>
+            <div class="ns-item">
+              <div class="ns-num">2</div>
+              <span>Enviaremos conteúdos sobre educação alinhados ao seu perfil de leitor.</span>
+            </div>
+            <div class="ns-item">
+              <div class="ns-num">3</div>
+              <span>Em setembro, você será um dos primeiros a saber sobre as matrículas 2027.</span>
+            </div>
+          </div>
+        </div>
+      </div><!-- /success-state -->
+
+    </div><!-- /form-card -->
+  </div><!-- /form-col -->
+
+</div><!-- /body-layout -->
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <img src="data:image/png;base64,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BgLFXrae0zqPUUrY7DYrlcy444qame9g9bgOFvrJCn7aTs11TquC7bhSRxwRkObaYHhxkP8AeyDkB+a3OfxvBedxe0LWPtv9u/yPqlQqVX7KPb7F+i6i22O4azr4jG+6hsFC1wwe4aSXP9T3Yx6GA+KjLtg3P5fvNLShxLbdb4KbGeQceKU/CQe5XRgiip4I4IImRRRtDGMY0Na1oGAAB0AC+fe9NbNdN3NV1kjJGk3SaEBzSDwxHum/6WBUelVXdX068un0S+B33kFRt4011NQVq+w3a+603qW9uZh1TWxUrSfERM4+Xtm+HoVVeF34p9yvJ2WLRJadlLOJoXQzVj5qt4c0tJD5HcBwfNgYu7XavDa8PVpfP5Hhp8M1s9CUURFjC9CIiAIiIAiIgOiqoqOqBFTSQTgjBEkYdn3rDZp6wMeHssdsa4dHCkYCPgvTRSpNcmRhHCKKOJgZFG1jB0a0YAXNEUEhERAFi1dtt1Yc1dBS1Bzn77C137wspEzgGFBabVT/AIC2UUXPP0IGt/cFlxxsjbwxsaxvk0YC5Ipbb5jAREUAxau226s/7ugpajnn77C13P2hY8On7DC8PhsltjcOhZSsB+AXpIp4mu8jCPxjWsaGtaGtHQAYC/URQSFxMcbjlzGknxIXJEBw7qL+rZ+qFzREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAf/2Q==" alt="Escola SESI Bahia" style="height:44px;width:auto;filter:brightness(0) invert(1);opacity:0.85;display:block;margin-bottom:8px;">
+      <div class="footer-copy">© 2025 SESI Bahia · CNPJ 03.648.359/0001-18 · Todos os direitos reservados</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.escolasesiba.com.br" target="_blank">escolasesiba.com.br</a>
+      <a href="#">Política de Privacidade</a>
+      <a href="https://www.escolasesiba.com.br/contato/fale-conosco/" target="_blank">Fale Conosco</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── PERFIS ──
+  const perfis = {
+    aventureiro: {
+      label: 'Aventureiro', emoji: '🧭',
+      cor: '#c45c26', light: '#fdf0e8',
+      guia: 'guia_aventureiro.html',
+      heroAccent: 'Perfil Aventureiro.',
+      sub: 'No nosso stand na Bienal, você indicou que prefere histórias com ação e descobertas. Preparamos um guia com curadoria especial para o leitor Aventureiro — confirme seus dados para receber.',
+    },
+    emocional: {
+      label: 'Emocional', emoji: '♥',
+      cor: '#b5344a', light: '#fdf0f2',
+      guia: 'guia_emocional.html',
+      heroAccent: 'Perfil Emocional.',
+      sub: 'No nosso stand na Bienal, você indicou que lê para sentir e se conectar. Preparamos um guia com curadoria especial para o leitor Emocional — confirme seus dados para receber.',
+    },
+    reflexivo: {
+      label: 'Reflexivo', emoji: '§',
+      cor: '#1a4a6e', light: '#e8f0f7',
+      guia: 'guia_reflexivo.html',
+      heroAccent: 'Perfil Reflexivo.',
+      sub: 'No nosso stand na Bienal, você indicou que lê para pensar e questionar. Preparamos um guia com curadoria especial para o leitor Reflexivo — confirme seus dados para receber.',
+    },
+  };
+
+  // ── PARAMS ──
+  const p      = new URLSearchParams(window.location.search);
+  const pKey   = (p.get('perfil') || '').toLowerCase();
+  const nomeP  = p.get('nome') || '';
+  const perfil = perfis[pKey] || null;
+
+  // ── APLICAR PERFIL ──
+  function applyPerfil() {
+    if (!perfil) return;
+
+    document.documentElement.style.setProperty('--perfil-cor',   perfil.cor);
+    document.documentElement.style.setProperty('--perfil-light', perfil.light);
+
+    document.getElementById('hero-accent').textContent        = perfil.heroAccent;
+    document.getElementById('hero-sub').textContent           = perfil.sub;
+    document.getElementById('perfil-title-name').textContent  = 'leitor ' + perfil.label + '.';
+    document.getElementById('guide-preview-name').textContent = perfil.label;
+    document.getElementById('guide-preview-emoji').textContent= perfil.emoji;
+    document.getElementById('badge-emoji').textContent        = perfil.emoji;
+    document.getElementById('badge-tipo').textContent         = 'Perfil ' + perfil.label;
+    document.getElementById('perfil-badge').style.display     = 'inline-flex';
+    document.getElementById('guide-header').style.background  = perfil.cor;
+  }
+
+  function applyNome() {
+    if (!nomeP) return;
+    const fn = nomeP.split(' ')[0];
+    document.getElementById('hero-greeting').textContent = 'Olá, ' + fn + '!';
+    document.getElementById('f-nome').value = nomeP;
+  }
+
+  applyPerfil();
+  applyNome();
+
+  // ── CONSENT TOGGLE ──
+  const cbConsent   = document.getElementById('cb-consent');
+  const consentWrap = document.getElementById('consent-wrap');
+
+  cbConsent.addEventListener('change', () => {
+    consentWrap.classList.toggle('on', cbConsent.checked);
+    consentWrap.classList.remove('err-state');
+    document.getElementById('e-consent').classList.remove('show');
+  });
+
+  // ── FOCUS RESET ──
+  ['f-nome','f-email'].forEach(id => {
+    document.getElementById(id).addEventListener('focus', () => {
+      document.getElementById(id).classList.remove('err');
+      document.getElementById('e-' + id.replace('f-','')).classList.remove('show');
+    });
+  });
+
+  function validEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+
+  // ── SUBMIT ──
+  document.getElementById('main-form').addEventListener('submit', function(ev) {
+    ev.preventDefault();
+
+    const nome    = document.getElementById('f-nome').value.trim();
+    const email   = document.getElementById('f-email').value.trim();
+    const consent = cbConsent.checked;
+    let ok = true;
+
+    if (!nome) {
+      document.getElementById('f-nome').classList.add('err');
+      document.getElementById('e-nome').classList.add('show');
+      ok = false;
+    }
+    if (!email || !validEmail(email)) {
+      document.getElementById('f-email').classList.add('err');
+      document.getElementById('e-email').classList.add('show');
+      ok = false;
+    }
+    if (!consent) {
+      consentWrap.classList.add('err-state');
+      document.getElementById('e-consent').classList.add('show');
+      ok = false;
+    }
+
+    if (!ok) return;
+
+    const btn = document.getElementById('btn-submit');
+    btn.classList.add('loading');
+    btn.disabled = true;
+
+    // → Aqui entraria a chamada à API do Dynamics / RD Station
+    setTimeout(() => showSuccess(nome), 1500);
+  });
+
+  function showSuccess(nome) {
+    document.getElementById('form-state').style.display = 'none';
+    const ss = document.getElementById('success-state');
+    ss.classList.add('show');
+    document.getElementById('s-nome').textContent = nome.split(' ')[0];
+    if (perfil) document.getElementById('btn-download').href = perfil.guia;
+    window.scrollTo({ top: document.querySelector('.form-card').offsetTop - 100, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
